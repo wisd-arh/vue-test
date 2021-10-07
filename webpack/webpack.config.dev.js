@@ -1,6 +1,7 @@
 const Webpack              = require('webpack');
 const path                 = require('path');
 const { merge } = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer         = require('autoprefixer');
 const ManifestPlugin       = require('webpack-manifest-plugin');
 const AssetsPlugin         = require('assets-webpack-plugin');
@@ -42,7 +43,11 @@ module.exports = merge(common, {
             prettyPrint: true,
             entrypoints: true
         }),
-        new Webpack.optimize.ModuleConcatenationPlugin()
+        new Webpack.optimize.ModuleConcatenationPlugin(),
+        new MiniCssExtractPlugin({
+            filename     : 'css/[name].[chunkhash:8].css',
+            chunkFilename: 'css/[name].[chunkhash:8].css',
+        })
     ],
     module     : {
         rules: [
@@ -57,6 +62,14 @@ module.exports = merge(common, {
             {
                 test: /\.s?css/i,
                 use : [
+                    {
+                        loader : MiniCssExtractPlugin.loader,
+                        options: {
+                            // you can specify a publicPath here
+                            // by default it uses publicPath in webpackOptions.output
+                            publicPath: '/assets/',
+                        },
+                    },
                     'cache-loader',
                     'css-loader',
                     {
