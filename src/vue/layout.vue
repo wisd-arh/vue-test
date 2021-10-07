@@ -100,16 +100,16 @@ export default {
         },
     },
     async created() {
+        // база  наименований
         await this.loadDb()
+        // каталог таоваров
         await this.loadGoods()
+        // таблица цен для мониторинга изменения
         this.checkPrices() // init
         this.checkPrices() // remember inital state
         this.lastUpdate = new Date();
+        // таймер обновления data.json
         this.startTimer()
     },
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

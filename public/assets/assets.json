@@ -1,15 +1,15 @@
 {
   "icons": {
-    "js": "/js/icons.b4b5de47.js"
+    "js": "/js/icons.fa725411.js"
   },
   "images": {
-    "js": "/js/images.6095325d.js"
+    "js": "/js/images.fe882f79.js"
   },
   "index": {
     "js": [
-      "/js/3.8f53d3a3.chunk.js",
-      "/js/index.14b346fd.js"
+      "/js/0.89e125b0.chunk.js",
+      "/js/index.ce8f07c5.js"
     ],
-    "css": "/css/index.14b346fd.css"
+    "css": "/css/index.ce8f07c5.css"
   }
 }
