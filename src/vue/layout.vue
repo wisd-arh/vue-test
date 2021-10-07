@@ -13,7 +13,9 @@
                         :key="index+'/'+item.T" 
                         :class="{ 'price-down': priceDown(item.T), 'price-up': priceUp(item.T) }"
                     ) 
-                        .item-title {{ itemTitle(group[0], item.T)+'('+item.P+')' }}
+                        .item-title(
+                            @click="appendItem({ groupId: group[0], itemId: item.T })"                            
+                        ) {{ itemTitle(group[0], item.T)+'('+item.P+')' }}
                         .item-price {{ price(item.C) }}
         .course
             .course-title Курс USD
@@ -23,7 +25,7 @@
                 max="80"
                 v-model="course"
             )
-        .last-update {{ lastUpdate }}
+        .last-update {{ 'Обновлено: ' + lastUpdate }}
         cart
 </template>
 
@@ -45,6 +47,7 @@ export default {
     methods: {
         ...mapActions("db", ["loadDb"]),
         ...mapActions("catalog", ["loadGoods"]),
+        ...mapActions("cart", ["appendItem"]),
         async startTimer() {
             setInterval(async () => {
                 await this.loadGoods()
@@ -71,25 +74,7 @@ export default {
     },
     computed: {
         ...mapGetters("catalog", { goods: "getGoods", goodsByGroup: "getGoodsByGroup" }),
-        ...mapGetters("db", { db: "getDb" }),
-        groupTitle() {
-            return id => {
-                if (this.db)
-                    if (this.db[id])
-                        if (this.db[id].G)
-                            return this.db[id].G
-                return "Group undefined"
-            }
-        },
-        itemTitle() {
-            return (groupId, itemId) => {
-                if (this.db)
-                    if (this.db[groupId])
-                        if (this.db[groupId].B)
-                            return this.db[groupId].B[itemId].N || "undefined item"  
-                return "undefined item"
-            }
-        },
+        ...mapGetters("db", ["groupTitle", "itemTitle"]),
         catalogGroups() {
             return Object.entries(this.goodsByGroup)
         },
@@ -117,8 +102,9 @@ export default {
     async created() {
         await this.loadDb()
         await this.loadGoods()
-        this.checkPrices()
-        this.checkPrices()
+        this.checkPrices() // init
+        this.checkPrices() // remember inital state
+        this.lastUpdate = new Date();
         this.startTimer()
     },
 }

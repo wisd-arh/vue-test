@@ -8,54 +8,24 @@
                 .column Количество
                 .column Цена
                 .column
-            .cart-item
-                .cart-item__title Алгоритмы. Построение и анализ. Т. Кормен, Ч. Лейзерсон, Р. Ривест, К. Штайн.
-                .cart-item__count
-                    .cart-item__count-input
-                        input
-                        span шт.
-                    .cart-item__count-attention Количество ограничено
-                .cart-item__price
-                    .cart-item__price-price 943.87 руб.
-                    span / шт.
-                .cart-item__remove
-                    a.cart-item__remove-button Удалить
-
-            .cart-item
-                .cart-item__title Алгоритмы. Построение и анализ. Т. Кормен, Ч. Лейзерсон, Р. Ривест, К. Штайн.
-                .cart-item__count
-                    .cart-item__count-input
-                        input
-                        span шт.
-                    .cart-item__count-attention Количество ограничено
-                .cart-item__price
-                    .cart-item__price-price 943.87 руб.
-                    span / шт.
-                .cart-item__remove
-                    a.cart-item__remove-button Удалить
-
-            .cart-item
-                .cart-item__title Алгоритмы. Построение и анализ. Т. Кормен, Ч. Лейзерсон, Р. Ривест, К. Штайн.
-                .cart-item__count
-                    .cart-item__count-input
-                        input
-                        span шт.
-                    .cart-item__count-attention Количество ограничено
-                .cart-item__price
-                    .cart-item__price-price 943.87 руб.
-                    span / шт.
-                .cart-item__remove
-                    a.cart-item__remove-button Удалить
+            cart-item(v-for="item, index in items" :key="index", :item="item")
         .cart-total
-            span Общая стоимость
+            span Общая стоимость:
             .cart-total__total 98998 руб.
 </template>
 <script>
+import cartItem from "./cart-item.vue"
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-    
+    name: 'Cart',
+    components: { cartItem },
+    computed: {
+        ...mapGetters("cart", { items: "getItems" })
+    }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 
 .cart {
     display: flex;
@@ -112,8 +82,8 @@ export default {
 
             &-attention {
                 background-color: #fffaf2;
-                color: #ff6680;
-                border: 1px dotted #ff6680;
+                color: #ff6600;
+                border: 1px dotted #ff6600;
                 font-size: 10px;
                 padding: 7px 5px;
             }
@@ -163,7 +133,7 @@ export default {
             font-size: 14px;
             min-width: 100px;
             line-height: 25px;
-            color: #ff6680;
+            color: #ff6600;
         }
     }
 }
