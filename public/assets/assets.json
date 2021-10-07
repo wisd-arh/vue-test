@@ -3,13 +3,13 @@
     "js": "/js/icons.fa725411.js"
   },
   "images": {
-    "js": "/js/images.fe882f79.js"
+    "js": "/js/images.b0fc562a.js"
   },
   "index": {
     "js": [
       "/js/0.89e125b0.chunk.js",
-      "/js/index.ce8f07c5.js"
+      "/js/index.240fcb12.js"
     ],
-    "css": "/css/index.ce8f07c5.css"
+    "css": "/css/index.240fcb12.css"
   }
 }

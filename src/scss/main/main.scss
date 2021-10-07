@@ -28,13 +28,13 @@
 
         &__icon {
             margin-left: 5px;
-            svg {
+            img {
                 width: 25px;
                 height: 25px;
                 transition: transform 300ms ease;
             }
 
-            svg.hidden {
+            img.hidden {
                 transform: rotate(180deg);
                 transition: transform 300ms ease;
             }

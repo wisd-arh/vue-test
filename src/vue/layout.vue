@@ -4,8 +4,10 @@
             .group-container(v-for="group, index in catalogGroups" :key="index")
                 .group-title
                     .group-title__icon(@click="toggleGroup(group[0])")
-                        svg(:class="{ hidden: isHidden(group[0])}")
-                            use(href="icons/icons.svg#arrow-down")
+                        img(
+                            src="images/arrow-down.svg"
+                            :class="{ hidden: isHidden(group[0])}"
+                        )
                     .group-title__title {{ groupTitle(group[0]) }}
                 .items(v-show="!isHidden(group[0])")
                     .item-container(

@@ -1,11 +1,13 @@
 {
   "js/0.89e125b0.chunk.js": "/js/0.89e125b0.chunk.js",
   "icons.js": "/js/icons.fa725411.js",
-  "images.js": "/js/images.fe882f79.js",
-  "index.css": "/css/index.ce8f07c5.css",
-  "index.js": "/js/index.ce8f07c5.js",
+  "images.js": "/js/images.b0fc562a.js",
+  "index.css": "/css/index.240fcb12.css",
+  "index.js": "/js/index.240fcb12.js",
   "data.json": "/data.json",
   "icons/icons.svg": "/icons/icons.svg",
+  "images/arrow-down.svg": "/images/arrow-down.svg",
+  "images/cross.svg": "/images/cross.svg",
   "index.html": "/index.html",
   "names.json": "/names.json"
 }

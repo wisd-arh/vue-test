@@ -20,6 +20,8 @@
 </symbol><symbol viewBox="0 0 24 24" fill="none" id="closer">
 <path d="M4 4L20 20" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 <path d="M4 20L20 4.00003" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</symbol><symbol viewBox="0 0 20 20" fill="none" id="cross">
+<path d="M15.299 16.4833L9.99896 11.1749L4.69896 16.4833L3.51562 15.2999L8.82396 9.99993L3.51562 4.69993L4.69896 3.5166L9.99896 8.82494L15.299 3.52494L16.474 4.69993L11.174 9.99993L16.474 15.2999L15.299 16.4833Z" fill="black" />
 </symbol><symbol viewBox="0 0 36 48" fill="none" id="date-back">
 <rect x="36" y="48" width="36" height="48" transform="rotate(-180 36 48)" fill="#363636" />
 <path d="M12 25L21 18.9378L21 31.0622L12 25Z" fill="white" />

@@ -134,11 +134,11 @@ a {
   min-height: 25px; }
   .group-title__icon {
     margin-left: 5px; }
-    .group-title__icon svg {
+    .group-title__icon img {
       width: 25px;
       height: 25px;
       transition: transform 300ms ease; }
-    .group-title__icon svg.hidden {
+    .group-title__icon img.hidden {
       transform: rotate(180deg);
       transition: transform 300ms ease; }
   .group-title__title {
