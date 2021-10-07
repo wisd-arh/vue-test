@@ -1,0 +1,26 @@
+@import "../globals/global.scss";
+@import "../mixins/mixins.scss";
+
+h1, h2, h3, h4, p, div, li, a {
+    @include font();
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    @include transition();
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 80px;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+}
