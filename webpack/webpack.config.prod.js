@@ -6,6 +6,7 @@ const ManifestPlugin       = require('webpack-manifest-plugin');
 const AssetsPlugin         = require('assets-webpack-plugin');
 const cssnano               = require('cssnano');
 const common               = require('./webpack.common.js');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const PUBLIC_PATH = path.join(__dirname, '..','public', 'assets');
 
@@ -43,6 +44,10 @@ module.exports = merge(common, {
             entrypoints: true
         }),
         new Webpack.optimize.ModuleConcatenationPlugin(),
+        new MiniCssExtractPlugin({
+            filename     : 'css/[name].[chunkhash:8].css',
+            chunkFilename: 'css/[name].[chunkhash:8].css',
+        })
     ],
     module     : {
         rules: [
@@ -54,6 +59,14 @@ module.exports = merge(common, {
             {
                 test: /\.s?css/i,
                 use : [
+                    {
+                        loader : MiniCssExtractPlugin.loader,
+                        options: {
+                            // you can specify a publicPath here
+                            // by default it uses publicPath in webpackOptions.output
+                            publicPath: '/assets/',
+                        },
+                    },
                     'css-loader',
                     {
                         loader : 'postcss-loader',

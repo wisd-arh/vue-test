@@ -4,12 +4,11 @@
     "description": "",
     "main": "index.js",
     "keywords": [],
-    "author": "websm",
+    "author": "wisd-arh",
     "license": "ISC",
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack --config webpack/webpack.config.dev.js",
-        "prod": "webpack --config webpack/webpack.config.prod.js",
-        "serve": "webpack serve --config webpack/webpack.config.serve.js --progress"
+        "prod": "webpack --config webpack/webpack.config.prod.js"
     },
     "devDependencies": {
         "@babel/core": "^7.12.9",

@@ -26,7 +26,7 @@
                 v-model="course"
             )
         .last-update {{ 'Обновлено: ' + lastUpdate }}
-        cart
+        cart(:course="course")
 </template>
 
 <script>

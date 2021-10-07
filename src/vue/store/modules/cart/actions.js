@@ -20,5 +20,13 @@ export default {
             return el
         })
         context.commit("setItems", arr)
+    },
+
+    removeItem(context, item) {
+        let arr = context.state.items.filter(el => {
+            return !((el.groupId === item.groupId) && (el.itemId === item.itemId))
+        })
+        context.commit("setItems", arr)
     }
+
 }

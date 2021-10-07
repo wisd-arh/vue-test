@@ -9,21 +9,24 @@
                     v-model="localCount"
                 )
                 span шт.
-            .cart-item__count-attention Количество ограничено
+            .cart-item__count-attention(
+                v-show="itemLimit(item.itemId)"
+            ) Количество ограничено
         .cart-item__price
-            .cart-item__price-price 943.87 руб.
+            .cart-item__price-price {{ price }} руб.
             span / шт.
         .cart-item__remove
-            a.cart-item__remove-button Удалить
+            a.cart-item__remove-button(@click.prevent="removeItem(item)") Удалить
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
     name: 'CartItem',
-    props: ["item"],
+    props: ["item", "course"],
     computed: {
         ...mapGetters("db", ["groupTitle", "itemTitle"]),
+        ...mapGetters("catalog", ["itemLimit", "itemPrice"]),
         localCount: {
             get() {
                 return this.item.count
@@ -32,11 +35,13 @@ export default {
                 if (value > 0)
                     this.updateItemCount({ ...this.item, newCount: value })
             }
+        },
+        price() {
+            return (this.itemPrice(this.item.itemId)*this.course*this.localCount).toFixed(2)
         }
-
     },
     methods: {
-        ...mapActions("cart", ["updateItemCount"]),
+        ...mapActions("cart", ["updateItemCount", "removeItem"]),
     }
 }
 </script>
